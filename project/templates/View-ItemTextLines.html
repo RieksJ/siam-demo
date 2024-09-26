@@ -1,0 +1,30 @@
+<!-- 'ItemLines' allows you to show a bit more complex data related to a concept in one or more lines:
+VIEW BrekNameTwoLineSummary: Bankrekening
+{ "item1": brekIBAN
+, "ignore1": I /\ brekIsMine;brekIsMine~ -- property, saying that remainder of line should be ignored
+, "pre1": TXT "("
+, "sup1": brekBank
+, "post1": TXT ")"
+, "crlf2": I /\ brekNaam;brekNaam~ -- property, saying that a new line is in order (if it is missing, no further processing is done)
+} HTML TEMPLATE "View-ItemTextLines.html" ENDVIEW
+-->
+<div ng-repeat="resource in $if(exprIsUni)$(resource['$name$'] === null ? [] : [resource['$name$']])$else$resource['$name$']$endif$">
+	<span ng-if="resource._view_.crlf1"><br/></span>
+	{{resource._view_.item1}}
+	<span ng-if="!resource._view_.ignore1">
+		{{resource._view_.pre1}}{{resource._view_.sup1}}{{resource._view_.post1}}
+	</span>
+	<span ng-if="resource._view_.crlf2">
+		<br/>{{resource._view_.item2}}
+		<span ng-if="!resource._view_.ignore2">
+			{{resource._view_.pre2}}{{resource._view_.sup2}}{{resource._view_.post2}}
+		</span>
+		<span ng-if="resource._view_.crlf3"><br/>
+			<br/>{{resource._view_.item3}}
+			<span ng-if="!resource._view_.ignore3">
+				{{resource._view_.pre3}}{{resource._view_.sup3}}{{resource._view_.post3}}
+			</span>
+			<span ng-if="resource._view_.crlf3"><br/></span>
+		</span>
+	</span>
+</div>

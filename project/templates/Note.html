@@ -1,0 +1,6 @@
+$if(verbose)$<!-- Custom template: Note.html -->$endif$
+<div class="center">
+    <img $if(exprIsUni)$ng-repeat="note in (resource['$name$'] === null ? [] : [resource['$name$']]) track by \$index"$else$ng-repeat="note in resource['$name$'] track by \$index"$endif$
+        src="app/images/note.png" alt="Note" width="20px" uib-popover="{{note | limitTo : 100}}{{note.length > 100 ? '...' : ''}}"
+        popover-placement="left-top" popover-title="Note" popover-trigger="mouseenter">
+</div>

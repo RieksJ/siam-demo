@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row">
+        <div $if(exprIsUni)$ng-repeat="obj in (resource['$name$'] === null ? [] : [resource['$name$']]) track by \$index"$else$ng-repeat="obj in resource['$name$'] track by \$index"$endif$
+            class="col-sm-3"><!-- 4 in a row -->
+            <a ng-href="#/TreeView/{{obj._id_}}">
+                <img style="height:50px;" src="app/images/icons/genealogy.svg"/><br/>
+                <span>{{obj._view_.name}}</span>
+            </a>
+        </div>
+    </div>
+</div>

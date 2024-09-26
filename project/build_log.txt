@@ -1,0 +1,362 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [prototype internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.24kB done
+#1 DONE 0.0s
+
+#2 [prototype internal] load metadata for docker.io/ampersandtarski/prototype-framework:v1.14
+#2 DONE 0.5s
+
+#3 [prototype internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [prototype internal] load build context
+#4 transferring context: 33.05kB done
+#4 DONE 0.0s
+
+#5 [prototype 1/5] FROM docker.io/ampersandtarski/prototype-framework:v1.14@sha256:a71893848bf2e502de97c19087174987a50308b0cf69c0339a512670e720dc81
+#5 CACHED
+
+#6 [prototype 2/5] COPY . /usr/local/project/
+#6 DONE 0.0s
+
+#7 [prototype 3/5] WORKDIR /usr/local/project
+#7 DONE 0.0s
+
+#8 [prototype 4/5] RUN ampersand proto main.adl   --proto-dir /var/www   --verbose
+#8 0.262 2024-09-26 13:52:21.175376: [debug] Ampersand-v4.6.2 [51c3de2e65c540ef026925fe8547c991765a5588:refs/tags/v4.6.2] runs with the following settings:
+#8 0.263 2024-09-26 13:52:21.176333: [debug] --[no-]backend True
+#8 0.263 2024-09-26 13:52:21.176610: [debug] --[no-]frontend True
+#8 0.263 2024-09-26 13:52:21.176777: [debug] --[no-]metamodel False
+#8 0.263 2024-09-26 13:52:21.177090: [debug] --[no-]terminal False
+#8 0.264 2024-09-26 13:52:21.177567: [debug] --[no-]time-in-log True
+#8 0.264 2024-09-26 13:52:21.177941: [debug] --[no-]trim-cellvalues True
+#8 0.265 2024-09-26 13:52:21.178399: [debug] --build-recipe Prototype
+#8 0.265 2024-09-26 13:52:21.178673: [debug] --crud-defaults CRUD
+#8 0.265 2024-09-26 13:52:21.179147: [debug] --frontend-version AngularJS
+#8 0.266 2024-09-26 13:52:21.179453: [debug] --ignore-invariant-violations False
+#8 0.266 2024-09-26 13:52:21.180084: [debug] --interfaces False
+#8 0.275 2024-09-26 13:52:21.180500: [debug] --language Nothing
+#8 0.275 2024-09-26 13:52:21.188473: [debug] --namespace ""
+#8 0.275 2024-09-26 13:52:21.188593: [debug] --output-dir "."
+#8 0.275 2024-09-26 13:52:21.188673: [debug] --proto-dir "/var/www"
+#8 0.275 2024-09-26 13:52:21.188740: [debug] --sql-bin-tables False
+#8 0.275 2024-09-26 13:52:21.188813: [debug] --terminal-width Nothing
+#8 0.275 2024-09-26 13:52:21.188881: [debug] --verbosity debug
+#8 0.275 2024-09-26 13:52:21.188933: [debug] AMPERSAND_SCRIPT main.adl
+#8 0.275 2024-09-26 13:52:21.189100: [debug] Reading file /usr/local/project/main.adl
+#8 0.279 2024-09-26 13:52:21.193064: [debug] Reading file /usr/local/project/SIAM_Who_I_Am.adl
+#8 0.280 2024-09-26 13:52:21.194109: [debug] Reading file /usr/local/project/SIAM_PF_Integration.adl
+#8 0.281 2024-09-26 13:52:21.195285: [debug] Reading file /usr/local/project/SIAM_Basics.adl
+#8 0.317 2024-09-26 13:52:21.230627: [debug] Reading file /usr/local/project/SIAM_Developer.ifc
+#8 0.320 2024-09-26 13:52:21.234056: [debug] Reading file /usr/local/project/SIAM_Views.ifc
+#8 0.321 2024-09-26 13:52:21.234911: [debug] Reading file /usr/local/project/SIAM_AccountRegUsingForm.adl
+#8 0.325 2024-09-26 13:52:21.238400: [debug] Reading file /usr/local/project/SIAM_AccountRegUsingUID.adl
+#8 0.326 2024-09-26 13:52:21.239544: [debug] Reading file /usr/local/project/SIAM_LoginWithUID.adl
+#8 0.336 2024-09-26 13:52:21.250227: [debug] Reading file /usr/local/project/SIAM_AccountManagement.ifc
+#8 0.340 2024-09-26 13:52:21.253619: [debug] Reading file /usr/local/project/SIAM_LoginLogging.adl
+#8 0.341 2024-09-26 13:52:21.254719: [debug] Reading file /usr/local/project/SIAM_LoginWithUPW.adl
+#8 0.343 2024-09-26 13:52:21.256395: [debug] Reading file /usr/local/project/SIAM_Logout.ifc
+#8 0.343 2024-09-26 13:52:21.257347: [debug] Reading file /usr/local/project/SIAM_LoginForDevelopers.ifc
+#8 0.346 2024-09-26 13:52:21.259855: [debug] Reading file /usr/local/project/SIAM_Organizations.adl
+#8 0.347 2024-09-26 13:52:21.260839: [debug] Reading file /usr/local/project/SIAM_Organizations.ifc
+#8 0.348 2024-09-26 13:52:21.261667: [debug] Reading file /usr/local/project/SIAM_Persons.adl
+#8 0.350 2024-09-26 13:52:21.264334: [debug] Reading file /usr/local/project/SIAM_PersonAttributes.adl
+#8 0.353 2024-09-26 13:52:21.266428: [debug] Reading file /usr/local/project/SIAM_PersonAttributes.ifc
+#8 0.355 2024-09-26 13:52:21.268408: [debug] Reading internal file FormalAmpersand.adl
+#8 0.355 2024-09-26 13:52:21.269046: [debug] Reading internal file Concepts.adl
+#8 0.360 2024-09-26 13:52:21.273391: [debug] Reading internal file Contexts.adl
+#8 0.372 2024-09-26 13:52:21.285475: [debug] Reading internal file Rules.adl
+#8 0.373 2024-09-26 13:52:21.287113: [debug] Reading internal file Relations.adl
+#8 0.375 2024-09-26 13:52:21.289073: [debug] Reading internal file Patterns.adl
+#8 0.380 2024-09-26 13:52:21.293312: [debug] Reading internal file Terms.adl
+#8 0.382 2024-09-26 13:52:21.296055: [debug] Reading internal file Documentation.adl
+#8 0.383 2024-09-26 13:52:21.296794: [debug] Reading internal file Generics.adl
+#8 0.384 2024-09-26 13:52:21.297932: [debug] Reading internal file Interfaces.adl
+#8 0.386 2024-09-26 13:52:21.299532: [debug] Reading internal file PrototypeContext.adl
+#8 0.386 2024-09-26 13:52:21.300020: [debug] Reading internal file Interfaces.adl
+#8 0.397 2024-09-26 13:52:21.310348: [debug] Reading internal file Interfaces.ifc
+#8 0.397 2024-09-26 13:52:21.311142: [debug] Reading internal file Navbar.adl
+#8 0.399 2024-09-26 13:52:21.313207: [debug] Reading internal file Navbar.ifc
+#8 0.400 2024-09-26 13:52:21.314115: [debug] Reading internal file Roles.adl
+#8 0.428 2024-09-26 13:52:21.341181: [debug] Generating prototype...
+#8 0.428 2024-09-26 13:52:21.341386: [info] Generating frontend...
+#8 0.428 2024-09-26 13:52:21.341437: [debug] Start copy templates
+#8 0.428 2024-09-26 13:52:21.341489: [debug]   From: ./templates
+#8 0.428 2024-09-26 13:52:21.341562: [debug]   To:   /var/www/templates
+#8 0.428 2024-09-26 13:52:21.341643: [debug] Copying project specific templates from ./templates -> /var/www/templates
+#8 0.428 2024-09-26 13:52:21.341730: [debug] Recursively copying 
+#8 0.428 2024-09-26 13:52:21.341795: [debug]      /usr/local/project/templates
+#8 0.428 2024-09-26 13:52:21.341943: [debug]   to /var/www/templates
+#8 0.429 2024-09-26 13:52:21.342846: [debug]  Copying dir... ./templates
+#8 0.429 2024-09-26 13:52:21.343103: [debug]       to dir... /var/www/templates
+#8 0.430 2024-09-26 13:52:21.343624: [debug]   file... View-AmountInEuro.html
+#8 0.431 2024-09-26 13:52:21.344641: [debug]   file... ISOLevel.html
+#8 0.431 2024-09-26 13:52:21.345165: [debug]   file... VariableDeletedCheckbox.html
+#8 0.432 2024-09-26 13:52:21.346189: [debug]   file... View-CredentialVerifyRequest.html
+#8 0.433 2024-09-26 13:52:21.346508: [debug]   file... TextWithPopover.html
+#8 0.433 2024-09-26 13:52:21.346939: [debug]   file... View-ProvisionPaymentStatus.html
+#8 0.433 2024-09-26 13:52:21.347285: [debug]   file... Box-TWOROWS.html
+#8 0.434 2024-09-26 13:52:21.347492: [debug]   file... View-CredentialIssueRequest.html
+#8 0.434 2024-09-26 13:52:21.348064: [debug]   file... Box-SSIFORM.html
+#8 0.435 2024-09-26 13:52:21.348473: [debug]   file... Regelinglink.html
+#8 0.436 2024-09-26 13:52:21.349712: [debug]   file... XMLCode.html
+#8 0.436 2024-09-26 13:52:21.350244: [debug]   file... Box-ClassPropertyElement.html
+#8 0.437 2024-09-26 13:52:21.350522: [debug]   file... ShrSeatManagement.html
+#8 0.437 2024-09-26 13:52:21.350742: [debug]   file... View-ItemTextLines.html
+#8 0.437 2024-09-26 13:52:21.350938: [debug]   file... View-AccountOfParty.html
+#8 0.437 2024-09-26 13:52:21.351203: [debug]   file... GoToTreeViewIcon.html
+#8 0.438 2024-09-26 13:52:21.351419: [debug]   file... View-QRCode.html
+#8 0.438 2024-09-26 13:52:21.351627: [debug]   file... Rechtsgrondlink.html
+#8 0.438 2024-09-26 13:52:21.351806: [debug]   file... View-DIDPairInvitation.html
+#8 0.438 2024-09-26 13:52:21.352008: [debug]   file... View-InterfaceMetaData.html
+#8 0.438 2024-09-26 13:52:21.352225: [debug]   file... Assignments.html
+#8 0.439 2024-09-26 13:52:21.352443: [debug]   file... STRONG.html
+#8 0.439 2024-09-26 13:52:21.352696: [debug]   file... Note.html
+#8 0.439 2024-09-26 13:52:21.352912: [debug]   file... ISOLevelRed.html
+#8 0.439 2024-09-26 13:52:21.353207: [debug]   file... Box-RELBUTTON.html
+#8 0.440 2024-09-26 13:52:21.353458: [debug]   file... Box-PropButton.html
+#8 0.440 2024-09-26 13:52:21.353703: [debug]   file... View-ItemLines.html
+#8 0.440 2024-09-26 13:52:21.354282: [debug]   file... StatusIcon.html
+#8 0.447 2024-09-26 13:52:21.361116: [debug] 23 interfaces will be generated. (AngularJS).
+#8 0.448 2024-09-26 13:52:21.361534: [debug]   Generating ifcAccRegForm.view.html
+#8 0.463 2024-09-26 13:52:21.376783: [debug]   Generating ifcAccount.view.html
+#8 0.493 2024-09-26 13:52:21.407007: [debug]   Generating ifcAccount_32_Mgt.view.html
+#8 0.498 2024-09-26 13:52:21.411710: [debug]   Generating ifcEdit_32_interface.view.html
+#8 0.510 2024-09-26 13:52:21.423841: [debug]   Generating ifcEdit_32_menu_32_item.view.html
+#8 0.529 2024-09-26 13:52:21.443197: [debug]   Generating ifcEdit_32_navigation_32_menu.view.html
+#8 0.555 2024-09-26 13:52:21.468734: [debug]   Generating ifcList_32_all_32_interfaces.view.html
+#8 0.561 2024-09-26 13:52:21.475253: [debug]   Generating ifcLogin.view.html
+#8 0.710 2024-09-26 13:52:21.623540: [debug]   Generating ifcLogout.view.html
+#8 0.718 2024-09-26 13:52:21.631392: [debug]   Generating ifcMy_32_Account.view.html
+#8 0.732 2024-09-26 13:52:21.645600: [debug]   Generating ifcNew_32_Organization.view.html
+#8 0.734 2024-09-26 13:52:21.647997: [debug]   Generating ifcPerson.view.html
+#8 0.769 2024-09-26 13:52:21.682987: [debug]   Generating ifcRegister.view.html
+#8 0.809 2024-09-26 13:52:21.722630: [debug]   Generating ifcRole_32_Mgt.view.html
+#8 0.815 2024-09-26 13:52:21.728465: [debug]   Generating ifcUpdate_32_Organization.view.html
+#8 0.827 2024-09-26 13:52:21.740375: [debug]   Generating ifc_91_SIAM__Accounts__Dev_93_.view.html
+#8 0.837 2024-09-26 13:52:21.750322: [debug]   Generating ifc_91_SIAM__Actors__Dev_93_.view.html
+#8 0.853 2024-09-26 13:52:21.766222: [debug]   Generating ifc_91_SIAM__Dev_93_.view.html
+#8 0.977 2024-09-26 13:52:21.890101: [debug]   Generating ifc_91_SIAM__Organizations__Dev_93_.view.html
+#8 0.981 2024-09-26 13:52:21.894580: [debug]   Generating ifc_91_SIAM__Parties__Dev_93_.view.html
+#8 0.987 2024-09-26 13:52:21.900361: [debug]   Generating ifc_91_SIAM__Persons__Dev_93_.view.html
+#8 1.001 2024-09-26 13:52:21.914505: [debug]   Generating ifc_91_SIAM__Roles__Dev_93_.view.html
+#8 1.028 2024-09-26 13:52:21.941282: [debug]   Generating ifc_91_SIAM__SESSION__Dev_93_.view.html
+#8 1.065 2024-09-26 13:52:21.978790: [debug]   Generating ifcAccRegForm.controller.js
+#8 1.066 2024-09-26 13:52:21.979691: [debug]   Generating ifcAccount.controller.js
+#8 1.067 2024-09-26 13:52:21.980741: [debug]   Generating ifcAccount_32_Mgt.controller.js
+#8 1.068 2024-09-26 13:52:21.981550: [debug]   Generating ifcEdit_32_interface.controller.js
+#8 1.069 2024-09-26 13:52:21.982354: [debug]   Generating ifcEdit_32_menu_32_item.controller.js
+#8 1.070 2024-09-26 13:52:21.983555: [debug]   Generating ifcEdit_32_navigation_32_menu.controller.js
+#8 1.071 2024-09-26 13:52:21.984640: [debug]   Generating ifcList_32_all_32_interfaces.controller.js
+#8 1.072 2024-09-26 13:52:21.985818: [debug]   Generating ifcLogin.controller.js
+#8 1.073 2024-09-26 13:52:21.986635: [debug]   Generating ifcLogout.controller.js
+#8 1.074 2024-09-26 13:52:21.987379: [debug]   Generating ifcMy_32_Account.controller.js
+#8 1.075 2024-09-26 13:52:21.988772: [debug]   Generating ifcNew_32_Organization.controller.js
+#8 1.083 2024-09-26 13:52:21.996657: [debug]   Generating ifcPerson.controller.js
+#8 1.084 2024-09-26 13:52:21.997505: [debug]   Generating ifcRegister.controller.js
+#8 1.085 2024-09-26 13:52:21.998454: [debug]   Generating ifcRole_32_Mgt.controller.js
+#8 1.085 2024-09-26 13:52:21.999156: [debug]   Generating ifcUpdate_32_Organization.controller.js
+#8 1.086 2024-09-26 13:52:22.000205: [debug]   Generating ifc_91_SIAM__Accounts__Dev_93_.controller.js
+#8 1.087 2024-09-26 13:52:22.001127: [debug]   Generating ifc_91_SIAM__Actors__Dev_93_.controller.js
+#8 1.088 2024-09-26 13:52:22.002306: [debug]   Generating ifc_91_SIAM__Dev_93_.controller.js
+#8 1.090 2024-09-26 13:52:22.003382: [debug]   Generating ifc_91_SIAM__Organizations__Dev_93_.controller.js
+#8 1.091 2024-09-26 13:52:22.004939: [debug]   Generating ifc_91_SIAM__Parties__Dev_93_.controller.js
+#8 1.092 2024-09-26 13:52:22.005751: [debug]   Generating ifc_91_SIAM__Persons__Dev_93_.controller.js
+#8 1.093 2024-09-26 13:52:22.006541: [debug]   Generating ifc_91_SIAM__Roles__Dev_93_.controller.js
+#8 1.093 2024-09-26 13:52:22.007227: [debug]   Generating ifc_91_SIAM__SESSION__Dev_93_.controller.js
+#8 1.094 2024-09-26 13:52:22.007969: [debug] Start genRouteProvider.
+#8 1.095 2024-09-26 13:52:22.008579: [debug] Template (/var/www/templates/routeProvider.config.js)
+#8 1.095 2024-09-26 13:52:22.008711: [debug]   /*
+#8 1.095 2024-09-26 13:52:22.008775: [debug]  * RouteProvider.js (context: ""). Generated code, edit with care.
+#8 1.095 2024-09-26 13:52:22.008883: [debug]  */
+#8 1.095 2024-09-26 13:52:22.008949: [debug] /* jshint ignore:start */
+#8 1.096 2024-09-26 13:52:22.009330: [debug] angular.module('AmpersandApp').config( function ($routeProvider) {
+#8 1.098 2024-09-26 13:52:22.011747: [debug]     $routeProvider
+#8 1.098 2024-09-26 13:52:22.012144: [debug]     .when( "//:resourceId?", {
+#8 1.099 2024-09-26 13:52:22.012943: [debug]         controller:  "IfcController",
+#8 1.099 2024-09-26 13:52:22.013193: [debug]         templateUrl: "app/project/ifc.view.html",
+#8 1.100 2024-09-26 13:52:22.014362: [debug]         interfaceLabel: "" 
+#8 1.102 2024-09-26 13:52:22.015510: [debug]         }
+#8 1.102 2024-09-26 13:52:22.015781: [debug]     )
+#8 1.103 2024-09-26 13:52:22.016393: [debug] });
+#8 1.103 2024-09-26 13:52:22.016703: [debug] /* jshint ignore:end */
+#8 1.103 2024-09-26 13:52:22.016963: [debug] Generated template: 
+#8 1.104 2024-09-26 13:52:22.018138: [debug]    /*
+#8 1.104 2024-09-26 13:52:22.018264: [debug]     * RouteProvider.js (context: "Who_I_Am"). Generated code, edit with care.
+#8 1.104 2024-09-26 13:52:22.018411: [debug]     */
+#8 1.105 2024-09-26 13:52:22.018498: [debug]    /* jshint ignore:start */
+#8 1.105 2024-09-26 13:52:22.018609: [debug]    angular.module('AmpersandApp').config( function ($routeProvider) {
+#8 1.105 2024-09-26 13:52:22.018833: [debug]        $routeProvider
+#8 1.105 2024-09-26 13:52:22.018954: [debug]        .when( "/AccRegForm/:resourceId?", {
+#8 1.105 2024-09-26 13:52:22.019143: [debug]            controller:  "IfcAccRegFormController",
+#8 1.105 2024-09-26 13:52:22.019300: [debug]            templateUrl: "app/project/ifcAccRegForm.view.html",
+#8 1.106 2024-09-26 13:52:22.019425: [debug]            interfaceLabel: "AccRegForm" 
+#8 1.106 2024-09-26 13:52:22.019538: [debug]            }
+#8 1.106 2024-09-26 13:52:22.019622: [debug]        )
+#8 1.106 2024-09-26 13:52:22.019704: [debug]        .when( "/Account/:resourceId?", {
+#8 1.106 2024-09-26 13:52:22.019830: [debug]            controller:  "IfcAccountController",
+#8 1.106 2024-09-26 13:52:22.019985: [debug]            templateUrl: "app/project/ifcAccount.view.html",
+#8 1.106 2024-09-26 13:52:22.020198: [debug]            interfaceLabel: "Account" 
+#8 1.106 2024-09-26 13:52:22.020365: [debug]            }
+#8 1.107 2024-09-26 13:52:22.020470: [debug]        )
+#8 1.107 2024-09-26 13:52:22.020565: [debug]        .when( "/Account_32_Mgt/:resourceId?", {
+#8 1.107 2024-09-26 13:52:22.020700: [debug]            controller:  "IfcAccount_32_MgtController",
+#8 1.107 2024-09-26 13:52:22.020859: [debug]            templateUrl: "app/project/ifcAccount_32_Mgt.view.html",
+#8 1.107 2024-09-26 13:52:22.020995: [debug]            interfaceLabel: "Account Mgt" 
+#8 1.107 2024-09-26 13:52:22.021126: [debug]            }
+#8 1.107 2024-09-26 13:52:22.021260: [debug]        )
+#8 1.107 2024-09-26 13:52:22.021344: [debug]        .when( "/Edit_32_interface/:resourceId?", {
+#8 1.108 2024-09-26 13:52:22.021515: [debug]            controller:  "IfcEdit_32_interfaceController",
+#8 1.108 2024-09-26 13:52:22.021645: [debug]            templateUrl: "app/project/ifcEdit_32_interface.view.html",
+#8 1.108 2024-09-26 13:52:22.021821: [debug]            interfaceLabel: "Edit interface" 
+#8 1.108 2024-09-26 13:52:22.021988: [debug]            }
+#8 1.108 2024-09-26 13:52:22.022160: [debug]        )
+#8 1.108 2024-09-26 13:52:22.022266: [debug]        .when( "/Edit_32_menu_32_item/:resourceId?", {
+#8 1.109 2024-09-26 13:52:22.022410: [debug]            controller:  "IfcEdit_32_menu_32_itemController",
+#8 1.109 2024-09-26 13:52:22.022605: [debug]            templateUrl: "app/project/ifcEdit_32_menu_32_item.view.html",
+#8 1.109 2024-09-26 13:52:22.022780: [debug]            interfaceLabel: "Edit menu item" 
+#8 1.109 2024-09-26 13:52:22.022991: [debug]            }
+#8 1.109 2024-09-26 13:52:22.023125: [debug]        )
+#8 1.109 2024-09-26 13:52:22.023237: [debug]        .when( "/Edit_32_navigation_32_menu/:resourceId?", {
+#8 1.109 2024-09-26 13:52:22.023383: [debug]            controller:  "IfcEdit_32_navigation_32_menuController",
+#8 1.110 2024-09-26 13:52:22.023587: [debug]            templateUrl: "app/project/ifcEdit_32_navigation_32_menu.view.html",
+#8 1.110 2024-09-26 13:52:22.023731: [debug]            interfaceLabel: "Edit navigation menu" 
+#8 1.110 2024-09-26 13:52:22.023826: [debug]            }
+#8 1.110 2024-09-26 13:52:22.023904: [debug]        )
+#8 1.110 2024-09-26 13:52:22.023972: [debug]        .when( "/List_32_all_32_interfaces/:resourceId?", {
+#8 1.110 2024-09-26 13:52:22.024155: [debug]            controller:  "IfcList_32_all_32_interfacesController",
+#8 1.110 2024-09-26 13:52:22.024328: [debug]            templateUrl: "app/project/ifcList_32_all_32_interfaces.view.html",
+#8 1.111 2024-09-26 13:52:22.024467: [debug]            interfaceLabel: "List all interfaces" 
+#8 1.111 2024-09-26 13:52:22.024641: [debug]            }
+#8 1.111 2024-09-26 13:52:22.024729: [debug]        )
+#8 1.111 2024-09-26 13:52:22.024814: [debug]        .when( "/Login/:resourceId?", {
+#8 1.112 2024-09-26 13:52:22.024916: [debug]            controller:  "IfcLoginController",
+#8 1.112 2024-09-26 13:52:22.025063: [debug]            templateUrl: "app/project/ifcLogin.view.html",
+#8 1.112 2024-09-26 13:52:22.025240: [debug]            interfaceLabel: "Login" 
+#8 1.112 2024-09-26 13:52:22.025346: [debug]            }
+#8 1.112 2024-09-26 13:52:22.025422: [debug]        )
+#8 1.112 2024-09-26 13:52:22.025499: [debug]        .when( "/Logout/:resourceId?", {
+#8 1.112 2024-09-26 13:52:22.025646: [debug]            controller:  "IfcLogoutController",
+#8 1.112 2024-09-26 13:52:22.025790: [debug]            templateUrl: "app/project/ifcLogout.view.html",
+#8 1.112 2024-09-26 13:52:22.025914: [debug]            interfaceLabel: "Logout" 
+#8 1.112 2024-09-26 13:52:22.026006: [debug]            }
+#8 1.112 2024-09-26 13:52:22.026085: [debug]        )
+#8 1.112 2024-09-26 13:52:22.026173: [debug]        .when( "/My_32_Account/:resourceId?", {
+#8 1.112 2024-09-26 13:52:22.026289: [debug]            controller:  "IfcMy_32_AccountController",
+#8 1.112 2024-09-26 13:52:22.026400: [debug]            templateUrl: "app/project/ifcMy_32_Account.view.html",
+#8 1.113 2024-09-26 13:52:22.026528: [debug]            interfaceLabel: "My Account" 
+#8 1.113 2024-09-26 13:52:22.026712: [debug]            }
+#8 1.113 2024-09-26 13:52:22.026815: [debug]        )
+#8 1.113 2024-09-26 13:52:22.026895: [debug]        .when( "/New_32_Organization/:resourceId?", {
+#8 1.114 2024-09-26 13:52:22.027044: [debug]            controller:  "IfcNew_32_OrganizationController",
+#8 1.114 2024-09-26 13:52:22.027208: [debug]            templateUrl: "app/project/ifcNew_32_Organization.view.html",
+#8 1.114 2024-09-26 13:52:22.027355: [debug]            interfaceLabel: "New Organization" 
+#8 1.114 2024-09-26 13:52:22.027525: [debug]            }
+#8 1.114 2024-09-26 13:52:22.027613: [debug]        )
+#8 1.114 2024-09-26 13:52:22.027691: [debug]        .when( "/Person/:resourceId?", {
+#8 1.114 2024-09-26 13:52:22.027789: [debug]            controller:  "IfcPersonController",
+#8 1.114 2024-09-26 13:52:22.027967: [debug]            templateUrl: "app/project/ifcPerson.view.html",
+#8 1.115 2024-09-26 13:52:22.028274: [debug]            interfaceLabel: "Person" 
+#8 1.116 2024-09-26 13:52:22.029719: [debug]            }
+#8 1.116 2024-09-26 13:52:22.030333: [debug]        )
+#8 1.117 2024-09-26 13:52:22.030733: [debug]        .when( "/Register/:resourceId?", {
+#8 1.117 2024-09-26 13:52:22.031123: [debug]            controller:  "IfcRegisterController",
+#8 1.118 2024-09-26 13:52:22.031369: [debug]            templateUrl: "app/project/ifcRegister.view.html",
+#8 1.119 2024-09-26 13:52:22.032359: [debug]            interfaceLabel: "Register" 
+#8 1.119 2024-09-26 13:52:22.032888: [debug]            }
+#8 1.120 2024-09-26 13:52:22.033531: [debug]        )
+#8 1.120 2024-09-26 13:52:22.033876: [debug]        .when( "/Role_32_Mgt/:resourceId?", {
+#8 1.120 2024-09-26 13:52:22.034340: [debug]            controller:  "IfcRole_32_MgtController",
+#8 1.121 2024-09-26 13:52:22.034626: [debug]            templateUrl: "app/project/ifcRole_32_Mgt.view.html",
+#8 1.122 2024-09-26 13:52:22.035629: [debug]            interfaceLabel: "Role Mgt" 
+#8 1.122 2024-09-26 13:52:22.035987: [debug]            }
+#8 1.122 2024-09-26 13:52:22.036247: [debug]        )
+#8 1.123 2024-09-26 13:52:22.036913: [debug]        .when( "/Update_32_Organization/:resourceId?", {
+#8 1.123 2024-09-26 13:52:22.037142: [debug]            controller:  "IfcUpdate_32_OrganizationController",
+#8 1.124 2024-09-26 13:52:22.037648: [debug]            templateUrl: "app/project/ifcUpdate_32_Organization.view.html",
+#8 1.124 2024-09-26 13:52:22.038148: [debug]            interfaceLabel: "Update Organization" 
+#8 1.125 2024-09-26 13:52:22.038472: [debug]            }
+#8 1.125 2024-09-26 13:52:22.038635: [debug]        )
+#8 1.125 2024-09-26 13:52:22.039003: [debug]        .when( "/_91_SIAM__Accounts__Dev_93_/:resourceId?", {
+#8 1.125 2024-09-26 13:52:22.039163: [debug]            controller:  "Ifc_91_SIAM__Accounts__Dev_93_Controller",
+#8 1.126 2024-09-26 13:52:22.039649: [debug]            templateUrl: "app/project/ifc_91_SIAM__Accounts__Dev_93_.view.html",
+#8 1.126 2024-09-26 13:52:22.040023: [debug]            interfaceLabel: "[SIAM_Accounts_Dev]" 
+#8 1.127 2024-09-26 13:52:22.040447: [debug]            }
+#8 1.127 2024-09-26 13:52:22.040565: [debug]        )
+#8 1.127 2024-09-26 13:52:22.040660: [debug]        .when( "/_91_SIAM__Actors__Dev_93_/:resourceId?", {
+#8 1.127 2024-09-26 13:52:22.040831: [debug]            controller:  "Ifc_91_SIAM__Actors__Dev_93_Controller",
+#8 1.127 2024-09-26 13:52:22.041056: [debug]            templateUrl: "app/project/ifc_91_SIAM__Actors__Dev_93_.view.html",
+#8 1.127 2024-09-26 13:52:22.041213: [debug]            interfaceLabel: "[SIAM_Actors_Dev]" 
+#8 1.127 2024-09-26 13:52:22.041337: [debug]            }
+#8 1.128 2024-09-26 13:52:22.041512: [debug]        )
+#8 1.128 2024-09-26 13:52:22.041638: [debug]        .when( "/_91_SIAM__Dev_93_/:resourceId?", {
+#8 1.128 2024-09-26 13:52:22.041829: [debug]            controller:  "Ifc_91_SIAM__Dev_93_Controller",
+#8 1.128 2024-09-26 13:52:22.042011: [debug]            templateUrl: "app/project/ifc_91_SIAM__Dev_93_.view.html",
+#8 1.128 2024-09-26 13:52:22.042332: [debug]            interfaceLabel: "[SIAM_Dev]" 
+#8 1.129 2024-09-26 13:52:22.042530: [debug]            }
+#8 1.129 2024-09-26 13:52:22.042614: [debug]        )
+#8 1.129 2024-09-26 13:52:22.042695: [debug]        .when( "/_91_SIAM__Organizations__Dev_93_/:resourceId?", {
+#8 1.129 2024-09-26 13:52:22.042881: [debug]            controller:  "Ifc_91_SIAM__Organizations__Dev_93_Controller",
+#8 1.129 2024-09-26 13:52:22.043078: [debug]            templateUrl: "app/project/ifc_91_SIAM__Organizations__Dev_93_.view.html",
+#8 1.129 2024-09-26 13:52:22.043377: [debug]            interfaceLabel: "[SIAM_Organizations_Dev]" 
+#8 1.130 2024-09-26 13:52:22.043547: [debug]            }
+#8 1.130 2024-09-26 13:52:22.043730: [debug]        )
+#8 1.130 2024-09-26 13:52:22.043841: [debug]        .when( "/_91_SIAM__Parties__Dev_93_/:resourceId?", {
+#8 1.130 2024-09-26 13:52:22.044004: [debug]            controller:  "Ifc_91_SIAM__Parties__Dev_93_Controller",
+#8 1.130 2024-09-26 13:52:22.044322: [debug]            templateUrl: "app/project/ifc_91_SIAM__Parties__Dev_93_.view.html",
+#8 1.131 2024-09-26 13:52:22.044512: [debug]            interfaceLabel: "[SIAM_Parties_Dev]" 
+#8 1.131 2024-09-26 13:52:22.044732: [debug]            }
+#8 1.131 2024-09-26 13:52:22.044905: [debug]        )
+#8 1.131 2024-09-26 13:52:22.045067: [debug]        .when( "/_91_SIAM__Persons__Dev_93_/:resourceId?", {
+#8 1.131 2024-09-26 13:52:22.045302: [debug]            controller:  "Ifc_91_SIAM__Persons__Dev_93_Controller",
+#8 1.132 2024-09-26 13:52:22.045516: [debug]            templateUrl: "app/project/ifc_91_SIAM__Persons__Dev_93_.view.html",
+#8 1.132 2024-09-26 13:52:22.045773: [debug]            interfaceLabel: "[SIAM_Persons_Dev]" 
+#8 1.132 2024-09-26 13:52:22.045949: [debug]            }
+#8 1.132 2024-09-26 13:52:22.046085: [debug]        )
+#8 1.132 2024-09-26 13:52:22.046251: [debug]        .when( "/_91_SIAM__Roles__Dev_93_/:resourceId?", {
+#8 1.133 2024-09-26 13:52:22.046435: [debug]            controller:  "Ifc_91_SIAM__Roles__Dev_93_Controller",
+#8 1.133 2024-09-26 13:52:22.046632: [debug]            templateUrl: "app/project/ifc_91_SIAM__Roles__Dev_93_.view.html",
+#8 1.133 2024-09-26 13:52:22.046865: [debug]            interfaceLabel: "[SIAM_Roles_Dev]" 
+#8 1.133 2024-09-26 13:52:22.047171: [debug]            }
+#8 1.133 2024-09-26 13:52:22.047378: [debug]        )
+#8 1.134 2024-09-26 13:52:22.047525: [debug]        .when( "/_91_SIAM__SESSION__Dev_93_/:resourceId?", {
+#8 1.134 2024-09-26 13:52:22.048111: [debug]            controller:  "Ifc_91_SIAM__SESSION__Dev_93_Controller",
+#8 1.135 2024-09-26 13:52:22.049120: [debug]            templateUrl: "app/project/ifc_91_SIAM__SESSION__Dev_93_.view.html",
+#8 1.135 2024-09-26 13:52:22.049289: [debug]            interfaceLabel: "[SIAM_SESSION_Dev]" 
+#8 1.136 2024-09-26 13:52:22.049713: [debug]            }
+#8 1.136 2024-09-26 13:52:22.050123: [debug]        )
+#8 1.137 2024-09-26 13:52:22.050527: [debug]    });
+#8 1.137 2024-09-26 13:52:22.050674: [debug]    /* jshint ignore:end */
+#8 1.137 2024-09-26 13:52:22.050900: [debug]   Generating routeProvider.config.js
+#8 1.138 2024-09-26 13:52:22.051605: [debug] Finish genRouteProvider.
+#8 1.138 2024-09-26 13:52:22.052078: [debug] Finished generating files for AngularJS
+#8 1.139 2024-09-26 13:52:22.052821: [debug] Write .timestamp
+#8 1.139 2024-09-26 13:52:22.053137: [debug]   Generating .timestamp
+#8 1.140 2024-09-26 13:52:22.054206: [info] Frontend generated
+#8 1.141 2024-09-26 13:52:22.054445: [info] Generating backend...
+#8 1.145 2024-09-26 13:52:22.058607: [debug]   Generating /var/www/generics/settings.json
+#8 1.147 2024-09-26 13:52:22.060930: [debug]   Generating /var/www/generics/relations.json
+#8 1.161 2024-09-26 13:52:22.074744: [debug]   Generating /var/www/generics/rules.json
+#8 1.337 2024-09-26 13:52:22.250462: [debug]   Generating /var/www/generics/concepts.json
+#8 1.345 2024-09-26 13:52:22.258793: [debug]   Generating /var/www/generics/conjuncts.json
+#8 1.489 2024-09-26 13:52:22.402514: [debug]   Generating /var/www/generics/interfaces.json
+#8 1.543 2024-09-26 13:52:22.456811: [debug]   Generating /var/www/generics/views.json
+#8 1.549 2024-09-26 13:52:22.462279: [debug]   Generating /var/www/generics/roles.json
+#8 1.551 2024-09-26 13:52:22.464863: [debug]   Generating /var/www/generics/populations.json
+#8 1.553 2024-09-26 13:52:22.466562: [info] Backend generated
+#8 1.553 2024-09-26 13:52:22.466669: [debug]   Skipping generating metamodel.adl
+#8 DONE 1.6s
+
+#9 [prototype 5/5] RUN chown -R www-data:www-data /var/www/log /var/www/data /var/www/generics   && cd /var/www
+#9 DONE 0.5s
+
+#10 [prototype] exporting to image
+#10 exporting layers 0.0s done
+#10 writing image sha256:b3f0fc316c26464a8dcf9ffab4cfad3012e3b64aa392252792f3c7f941a1c714 done
+#10 naming to docker.io/library/ampersand-prototype:latest done
+#10 DONE 0.1s
+
+#11 [prototype] resolving provenance for metadata file
+#11 DONE 0.0s

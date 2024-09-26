@@ -1,0 +1,22 @@
+$if(verbose)$<!-- Custom template: XMLCode.html -->$endif$
+$if(crudR)$<div class="xml-code" ng-controller="AceEditorController" ng-init="ifc = '$name$'">$if(crudU)$$if(exprIsUni)$
+    <div data-ui-ace="{mode: 'xml', onBlur: onBlurSave}" data-ng-model="resource['$name$']"></div>$else$
+    <div ng-repeat="row in resource['$name$'] track by \$index" style="margin-bottom: 10px;">
+        <span my-showonhover-box class="glyphicon glyphicon-minus" style="margin-right: 5px;" ng-click="removeItem(resource, '$name$', \$index, patchResource)"
+            uib-tooltip="Remove" tooltip-trigger="mouseenter" tooltip-placement="left"></span>
+        <span><strong>Example {{\$index + 1}}:</strong></span>
+        <div data-ui-ace="{mode: 'xml'}" readonly data-ng-model="::row"></div>
+    </div>
+    <div>
+        <span><strong>Add new example:</strong></span>
+        <div data-ui-ace="{mode: 'xml', onBlur: onBlurAdd}" data-ng-model="selected.value"></div>
+    </div>$endif$$else$$if(exprIsUni)$
+    <div data-ui-ace="{mode: 'xml'}" readonly data-ng-model="::resource['$name$']"></div>$else$
+    <div ng-repeat="row in resource['$name$'] track by \$index" style="margin-bottom: 10px;">
+        <span><strong>Example {{\$index + 1}}:</strong></span>
+        <div data-ui-ace="{mode: 'xml'}" readonly data-ng-model="::row"></div>
+    </div>$endif$$endif$
+</div>$else$
+<span>
+    <i>not readable</i>
+</span>$endif$

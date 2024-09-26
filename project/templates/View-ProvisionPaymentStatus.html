@@ -1,0 +1,24 @@
+<!--
+VIEW ProvisionPaymentStatus: Provision
+{ "dueamount": provDueAmount
+, "receivedamount": provReceivedAmount
+, "outstandingamount": provOutstandingAmount
+} HTML TEMPLATE "View-ProvisionPaymentStatus" ENDVIEW
+-->
+$if(exprIsUni)$<table>
+    <tr>
+	      <td>Totaalbedrag: </td>
+	      <td>&nbsp</td>
+        <td class="text-right">{{resource['$name$']._view_.dueamount | number:2}} &euro;</td>
+    </tr>
+    <tr>
+	      <td>Ontvangen: </td>
+	      <td>&nbsp</td>
+        <td class="text-right">{{resource['$name$']._view_.receivedamount | number:2}} &euro;</td>
+    </tr>
+    <tr>
+	      <td><strong>Te betalen: </strong></td>
+	      <td>&nbsp</td>
+        <td class="text-right">{{resource['$name$']._view_.outstandingamount | number:2}} &euro;</td>
+    </tr>
+</table>$else$<span>Template does not support non-UNI interface expressions</span>$endif$

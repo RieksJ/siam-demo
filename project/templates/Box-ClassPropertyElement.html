@@ -1,0 +1,52 @@
+$if(verbose)$<!-- Box-ClassPropertyElement.html "$label$" $expAdl$ :: $source$ * $target$ $if(exprIsUni)$[UNI]$endif$$if(exprIsTot)$[TOT]$endif$  ($if(crudC)$C$else$c$endif$$if(crudR)$R$else$r$endif$$if(crudU)$U$else$u$endif$$if(crudD)$D$else$d$endif$, $if(!isRoot)$non-$endif$root box) -->$endif$
+$if(crudR)$<div ng-init="parent = resource">
+<div $if(exprIsUni)$ng-repeat="resource in (resource['$name$'] === null ? [] : [resource['$name$']])"$else$ng-repeat="resource in resource['$name$']"$endif$ ng-init="patchResource = resource">
+    <div class="panel box box-panels" ng-controller="BoxController" 
+        ng-class="{ 'panel-warning' : resource._status_.warning || !resource._view_.locked || resource._view_.deprecated
+                  , 'panel-danger' : resource._status_.danger || resource._view_.removed
+                  , 'panel-success' : resource._status_.success
+                  , 'panel-primary' : resource._view_.locked
+                  }">
+        <div class="panel-heading">
+            <div class="pull-right box-panels-opt">
+                <!-- Save/cancel buttons -->
+                <button type="button" class="btn btn-warning btn-xs" ng-if="resource._showButtons_.save" ng-click="save(resource)">Save</button>
+                <button type="button" class="btn btn-danger btn-xs" ng-if="resource._showButtons_.cancel" ng-click="cancel(resource)">Cancel</button>
+                <!-- Warning for (un)locked elements -->
+                <img ng-if="resource._view_.locked" src="app/images/icons/lock.svg" style="width:25px;" uib-tooltip="This version is locked and cannot be changed anymore" tooltip-trigger="mouseenter" tooltip-placement="left" />
+                <img ng-if="!resource._view_.locked" src="app/images/icons/unlock.svg" style="width:25px;" uib-tooltip="This version is not locked and may be subject to change." tooltip-trigger="mouseenter" tooltip-placement="left" />
+                <!-- Navigate to previous and next versions -->
+                <button type="button" class="btn btn-xs" ng-show="resource._view_.previous" ng-click="switchResource(resource._view_.previous)" uib-tooltip="View previous version" tooltip-trigger="mouseenter" tooltip-placement="left">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </button>
+                <button type="button" class="btn btn-xs" ng-show="resource._view_.next" ng-click="switchResource(resource._view_.next)" uib-tooltip="View next version" tooltip-trigger="mouseenter" tooltip-placement="left">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>$if(crudU)$
+                <button type="button" class="btn btn-xs" ng-hide="resource._showButtons_.cancel" ng-click="remove(parent, '$name$', resource, $if(isRoot)$parent$else$patchResource$endif$)" uib-tooltip="Remove" tooltip-trigger="mouseenter" tooltip-placement="left">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </button>$endif$$if(crudD)$
+                <button type="button" class="btn btn-danger btn-xs" ng-hide="resource._showButtons_.cancel" ng-click="delete(parent, '$name$', resource)" uib-tooltip="Delete" tooltip-trigger="mouseenter" tooltip-placement="left">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>$endif$
+                <my-nav-to-other-interfaces resource="resource"></my-nav-to-other-interfaces>
+            </div>
+            <h3 class="panel-title">
+                <span ng-show="resource._view_.ns">{{resource._view_.ns}}:</span>
+                <span>{{resource._view_.name}}</span>
+                <small> {{resource._view_.ver}}</small>
+                <span ng-if="resource._view_.deprecated" class="label label-warning">DEPRECATED</span>
+                <span ng-if="resource._view_.removed" class="label label-danger">REMOVED</span>
+            </h3>
+        </div>
+        <div class="panel-body" cg-busy="resource._loading_">
+            <uib-tabset>$subObjects:{subObj|$if(verbose)$
+                <!-- TAB: $subObj.subObjLabel$ -->$endif$
+                <uib-tab heading="$subObj.subObjLabel$">
+                    $subObj.subObjContents$
+                </uib-tab>}$
+            </uib-tabset>
+        </div>
+    </div>
+</div></div>$else$<span>
+    <i>not readable</i>
+</span>$endif$

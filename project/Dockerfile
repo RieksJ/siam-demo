@@ -10,7 +10,7 @@ FROM ampersandtarski/prototype-framework:v1.14
 COPY . /usr/local/project/
 
 # If you have custom templates, they need to be copied to where the Ampersand compiler expects them (/var/www)
-# RUN cp -r -v /usr/local/project/shared/templates /var/www/
+# RUN cp -r -v /usr/local/project/templates /var/www/
 
 WORKDIR /usr/local/project
 

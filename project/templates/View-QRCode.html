@@ -1,0 +1,14 @@
+<!--
+VIEW QRCode: Form
+{ "fileid" : formQRCode -- i.e. filename (without path)
+} HTML TEMPLATE "View-QRCode.html" ENDVIEW -- to be elaborated on.
+// See also: https://developers.google.com/chart/infographics/docs/qr_codes
+-->
+$if(exprIsUni)$<div>
+<!-- <img src="app/images/{{atom._view_.fileid}}"-->
+<img src="https://chart.googleapis.com/chart?chs=128x128&cht=qr&chl=http%3A%2F%2Fwallet-gateway.localtunnel.me%2Fforms%2F{{resource['$name$']._id_}}&choe=UTF-8&chld=L|0" 
+     title="Link to 'https://wallet-gateway.localtunnel.me/forms/{{resource['$name$']._id_}}'" 
+     alt="Link for auto filling in form {{resource['$name$']._id_}}"
+     popover="Please scan this code with the SSIF app to auto fill in this form" 
+     popover-placement="right" popover-trigger="mouseenter" popover-popup-delay="100">
+</div>$else$<span>Template does not support non-UNI interface expressions</span>$endif$

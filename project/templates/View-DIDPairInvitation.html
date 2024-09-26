@@ -1,0 +1,7 @@
+<div ng-controller="DIDPairInvitationController">
+    <div ng-repeat="$if(exprIsUni)$resource in (resource['$name$'] === null ? [] : [resource['$name$']])$else$resource in resource['$name$']$endif$">
+        <!-- QR -->
+        <img ng-src="{{getQRCodeImageSrc(128, 128, resource)}}" alt="{{getInvitationLink(resource)}}" 
+             uib-tooltip="Scan this QR with your wallet app to pair your account" tooltip-placement="top" tooltip-trigger="mouseenter" />
+    </div>
+</div>
