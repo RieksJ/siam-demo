@@ -3,6 +3,10 @@ CONTEXT SIAMv4_0 IN ENGLISH -- SIAM: Sessions, Identity- and Access Management
 
 --! git@ci.tno.nl:ampersand/ssif.git has the authoratative source of SIAMv4.
 
+--[The demo consists of a portal with the interfaces that it makes available]
+   INCLUDE "./Generic_Views.adl"   -- a collection of views with general applicability (not all are used)
+   INCLUDE "./SIAM_DemoPortal.adl" -- the mail interface of the demo, from which all other demo-interfaces are called.
+
 --[Specifying the identity of the system itself, and some attributes]
     INCLUDE "./SIAM_Who_I_Am.adl"           -- Define the Actor that represents this system.
 -- POPULATION actorRef   CONTAINS [ ("I_Am","<ActorRef>")]     -- The name that can be used to refer to the system.
