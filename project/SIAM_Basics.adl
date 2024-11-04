@@ -239,29 +239,13 @@ VIOLATION (TXT "{EX}InsPair;accAllowedRoles;Account;", SRC I, TXT ";Role;User"
 
 --[Sessions: session variables]------------------------------------------------------------
 sessionIsAnon     :: SESSION * SESSION [PROP] MEANING "Property: the session does not have a session account (i.e., its user is anonymous)."
+ENFORCE sessionIsAnon := I - sessionAccount;sessionAccount~
+
 sessionIsUser     :: SESSION * SESSION [PROP] MEANING "Property: the session has a session account (i.e., the user is known)."
+ENFORCE sessionIsUser := I /\ sessionAccount;sessionAccount~
+
 sessionIsSysAdmin :: SESSION * SESSION [PROP] MEANING "Property: the session is a user-session, and the session account is a SysAdmin account"
-
-ROLE ExecEngine MAINTAINS "Set property 'sessionIsAnon'"
-RULE "Set property 'sessionIsAnon'": I - sessionAccount;sessionAccount~ |- sessionIsAnon
-VIOLATION (TXT "{EX} InsPair;sessionIsAnon;SESSION;", SRC I, TXT ";SESSION;", TGT I)
-ROLE ExecEngine MAINTAINS "Clear property 'sessionIsAnon'"
-RULE "Clear property 'sessionIsAnon'": sessionIsAnon |- I - sessionAccount;sessionAccount~
-VIOLATION (TXT "{EX} DelPair;sessionIsAnon;SESSION;", SRC I, TXT ";SESSION;", TGT I)
-
-ROLE ExecEngine MAINTAINS "Set property 'sessionIsUser'"
-RULE "Set property 'sessionIsUser'": I /\ sessionAccount;sessionAccount~ |- sessionIsUser
-VIOLATION (TXT "{EX} InsPair;sessionIsUser;SESSION;", SRC I, TXT ";SESSION;", TGT I)
-ROLE ExecEngine MAINTAINS "Clear property 'sessionIsUser'"
-RULE "Clear property 'sessionIsUser'": sessionIsUser |- I /\ sessionAccount;sessionAccount~
-VIOLATION (TXT "{EX} DelPair;sessionIsUser;SESSION;", SRC I, TXT ";SESSION;", TGT I)
-
-ROLE ExecEngine MAINTAINS "Set property 'sessionIsSysAdmin'"
-RULE "Set property 'sessionIsSysAdmin'": sessionAccount;accIsSysAdmin |- sessionIsSysAdmin;sessionAccount
-VIOLATION (TXT "{EX} InsPair;sessionIsSysAdmin;SESSION;", SRC I, TXT ";SESSION;", SRC I)
-ROLE ExecEngine MAINTAINS "Clear property 'sessionIsSysAdmin'"
-RULE "Clear property 'sessionIsSysAdmin'": sessionIsSysAdmin |- sessionAccount;accIsSysAdmin;sessionAccount~
-VIOLATION (TXT "{EX} DelPair;sessionIsSysAdmin;SESSION;", SRC I, TXT ";SESSION;", TGT I)
+ENFORCE sessionIsSysAdmin := I /\ sessionAccount;accIsSysAdmin;sessionAccount~
 
 sessionAccount  :: SESSION * Account  [UNI] MEANING "The Account that holds the default values for SESSION-variables."
 sessionUserid   :: SESSION * Userid   [UNI] MEANING "The name/identifier of the Account that has been used to login."
@@ -333,15 +317,10 @@ VIOLATION (TXT "{EX} DelPair;sessionLoginAssist;SESSION;", SRC I, TXT ";SESSION;
 --[Session: Navigation after succesful login/logout]
 CONCEPT NavToIfc "Alphanumeric text that represents an INTERFACE" REPRESENT NavToIfc TYPE ALPHANUMERIC
 sessionIfcsSet :: SESSION * SESSION [PROP] MEANING "Property: the default interfaces for anonymous- and user-sessions have been set."
+ENFORCE sessionIfcsSet := I /\ sessionAnonIfc;sessionAnonIfc~ /\ sessionUserIfc;sessionUserIfc~
+
 sessionAnonIfc :: SESSION * NavToIfc [UNI] MEANING "The name of default interface for anonymous sessions."
 sessionUserIfc :: SESSION * NavToIfc [UNI] MEANING "The name of default interface for human and non-human user sessions."
-
-ROLE ExecEngine MAINTAINS "InsPair `sessionIfcsSet`"
-RULE "InsPair `sessionIfcsSet`": I /\ sessionAnonIfc;sessionAnonIfc~ /\ sessionUserIfc;sessionUserIfc~ |- sessionIfcsSet
-VIOLATION (TXT "{EX} InsPair;sessionIfcsSet;SESSION;", SRC I, TXT ";SESSION;", TGT I)
-ROLE ExecEngine MAINTAINS "DelPair `sessionIfcsSet`"
-RULE "DelPair `sessionIfcsSet`": sessionIfcsSet |- I /\ sessionAnonIfc;sessionAnonIfc~ /\ sessionUserIfc;sessionUserIfc~
-VIOLATION (TXT "{EX} DelPair;sessionIfcsSet;SESSION;", SRC I, TXT ";SESSION;", TGT I)
 
 --[Sessions: susupension/reactivation]
 sessionOrigAcc :: SESSION * Account [UNI] MEANING "The Account that was set as the `sessionAccount` in the first (succesful) login."

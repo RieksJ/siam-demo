@@ -12,15 +12,8 @@ RULE "Assign role `AccAdmin` to SystemAdmins and PartyAdmins":
 VIOLATION (TXT "{EX} InsPair;accAllowedRoles;Account;", SRC I, TXT ";Role;AccAdmin")
 
 --[Accounts that may be managed in this session]
--- EQUIVALENCE sessionManageableAccounts[SESSION*Account] == sessionAccount;(I \/ accIsPartyAdmin;accParty;accParty~ \/ accIsSysAdmin;V)
 sessionManageableAccounts :: SESSION * Account -- Account that the sessionUser may manage
--- An AccountManager cannot manage his own account other than as users can. That's the 4-eyes principle.
-ROLE ExecEngine MAINTAINS "Eqv-InsPair sessionManageableAccounts"
-RULE "Eqv-InsPair sessionManageableAccounts": sessionAccount;(accIsPartyAdmin;accParty;accParty~ \/ accIsSysAdmin;V)-sessionAccount |- sessionManageableAccounts
-VIOLATION (TXT "{EX} InsPair;sessionManageableAccounts;SESSION;", SRC I, TXT ";Account;", TGT I)
-ROLE ExecEngine MAINTAINS "Eqv-DelPair sessionManageableAccounts"
-RULE "Eqv-DelPair sessionManageableAccounts": sessionManageableAccounts |- sessionAccount;(accIsPartyAdmin;accParty;accParty~ \/ accIsSysAdmin;V)-sessionAccount
-VIOLATION (TXT "{EX} DelPair;sessionManageableAccounts;SESSION;", SRC I, TXT ";Account;", TGT I)
+ENFORCE sessionManageableAccounts := sessionAccount;(accIsPartyAdmin;accParty;accParty~ \/ accIsSysAdmin;V)-sessionAccount
 
 --[Resetting a password]
 accNewPassword :: Account * Password [UNI]

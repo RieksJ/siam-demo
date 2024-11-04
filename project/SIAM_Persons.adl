@@ -41,22 +41,10 @@ RULE "InsPair actorRef from personRef": I[Person];actorRef[Actor*ActorRef] |- ac
 VIOLATION (TXT "{EX} InsPair;actorRef;Actor;", SRC I, TXT ";ActorRef;", TGT I[ActorRef])
 
 --[Personal properties for Accounts and Sessions]
--- EQUIVALENCE accIsPersonal[Account] [PROP] == (accParty;I[AorP] /\ accActor;I[AorP]);I[Person]
 accIsPersonal :: Account * Account [PROP] MEANING "Property: the account is associated with a Person (i.e., accActor and accParty refer to the same AoP)."
-ROLE ExecEngine MAINTAINS "Eqv-InsPair accIsPersonal"
-RULE "Eqv-InsPair accIsPersonal": I /\ accParty;I[AorP];accActor~ |- accIsPersonal
-VIOLATION (TXT "{EX} InsPair;accIsPersonal;Account;", SRC I, TXT ";Account;", TGT I)
-ROLE ExecEngine MAINTAINS "Eqv-DelPair accIsPersonal"
-RULE "Eqv-DelPair accIsPersonal": accIsPersonal |- I /\ accParty;I[AorP];accActor~
-VIOLATION (TXT "{EX} DelPair;accIsPersonal;Account;", SRC I, TXT ";Account;", TGT I)
+ENFORCE accIsPersonal := I /\ accParty;I[AorP];accActor~
 
--- EQUIVALENCE sessionIsPersonal[SESSION] [PROP] == sessionIsUser /\ sessionAccount;accIsPersonal;sessionAccount~
 sessionIsPersonal :: SESSION * SESSION [PROP] MEANING "Property: the session's user is a Person (i.e., it is both the `sessionActor` and `sessionParty`."
-ROLE ExecEngine MAINTAINS "Eqv-InsPair sessionIsPersonal"
-RULE "Eqv-InsPair sessionIsPersonal": sessionIsUser /\ sessionAccount;accIsPersonal;sessionAccount~ |- sessionIsPersonal
-VIOLATION (TXT "{EX} InsPair;sessionIsPersonal;SESSION;", SRC I, TXT ";SESSION;", TGT I)
-ROLE ExecEngine MAINTAINS "Eqv-DelPair sessionIsPersonal"
-RULE "Eqv-DelPair sessionIsPersonal": sessionIsPersonal |- sessionIsUser /\ sessionAccount;accIsPersonal;sessionAccount~
-VIOLATION (TXT "{EX} DelPair;sessionIsPersonal;SESSION;", SRC I, TXT ";SESSION;", TGT I)
+ENFORCE sessionIsPersonal := sessionIsUser /\ sessionAccount;accIsPersonal;sessionAccount~
 
 ENDCONTEXT
