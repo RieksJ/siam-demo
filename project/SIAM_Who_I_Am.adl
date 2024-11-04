@@ -5,25 +5,13 @@ CONCEPT I_Am "Representation of the Actor that the system itself is"
 
 CLASSIFY I_Am ISA Actor
 
-POPULATION I_Am CONTAINS [ "I_Am" ] -- This is what I_Am
-
--- `ENFORCE I[I_Am] := "I_Am"[I_Am]` results in an error; see issue `https://github.com/AmpersandTarski/Ampersand/issues/1519`
-ROLE ExecEngine MAINTAINS "Ensure the atom `I_Am` is in the concept `I_Am`"
-RULE "Ensure the atom `I_Am` is in the concept `I_Am`": 
-   "I_Am"[I_Am] |- I[I_Am]
-VIOLATION (TXT "{EX} InsAtom;I_Am;I_Am")
-
-ROLE ExecEngine MAINTAINS "Ensure there are no other atoms than `I_Am` in the concept `I_Am`"
-RULE "Ensure there are no other atoms than `I_Am` in the concept `I_Am`": 
-   I[I_Am] |- "I_Am"[I_Am]
-VIOLATION (TXT "{EX} DelAtom;I_Am;", SRC I)
-
--- `myOwnName` is now: `I[I_Am];actorRef` (because `I_Am` is an Actor)
--- `myOwningParty` is now: `I[I_Am];ownerRef`
+RULE "There can only be one I_Am": V[I_Am] = "I_Am"[I_Am]
+POPULATION I_Am CONTAINS [ "I_Am" ] -- We need to populate `I_Am` - see issue `https://github.com/AmpersandTarski/Ampersand/issues/166`
 
 -- POPULATION actorRef   CONTAINS [ ("I_Am","ActorRef by which this system is referred") ]
 -- POPULATION ownerRef   CONTAINS [ ("I_Am","PartyRef (=name) of the system's owner") ]
 -- POPULATION myLogofile CONTAINS [ ("I_Am","Fileid of the file that contains a visual representation of the system") ]
+
    myLogofile       :: I_Am * Fileid [INJ,UNI] -- File that contains a visual representation of this system
    myIssuerURL      :: I_Am * URL    [INJ,UNI] -- (optional) URL of the service this system uses for issuing credentials
    myVerifierURL    :: I_Am * URL    [INJ,UNI] -- (optional) URL of the service this system uses for verifying credentials
